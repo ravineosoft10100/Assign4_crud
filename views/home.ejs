@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Home Page</title>
+</head>
+
+<body>
+  <%- include('./partials/header.ejs'); %>
+    <div class=" vh-100 bg-image container"  style="background-image: url('https://mdbcdn.b-cdn.net/img/new/fluid/nature/012.webp');">
+      <div class="row" >
+        <% for(let i=0;i < pdata.length;i++){%>
+
+          <div class="col-md-3 my-3">
+            <div class="card" style="width: 18rem;">
+              <img src="../static/hot deals.jpg" class="card-img-top" alt="image">
+              <div class="card-body">
+                <hr>
+                <h5 class="card-title text-center text-uppercase">
+                  <%=pdata[i].name%>
+                </h5>
+                <p class="card-text text-center">
+                  <%=pdata[i].description%>
+                </p>
+                <h4 class="text-danger text-center">₹
+                  <%=pdata[i].price%>
+                </h4>
+                <div class="d-flex justify-content-between">
+                  <a href="/updatepro/<%=pdata[i]._id%>" class="btn btn-warning">Edit</a>
+                  <a href="/delete/<%=pdata[i]._id%>" class="btn btn-danger">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%}%>
+
+      </div>
+    </div>
+
+    <!-- <h1 class="text-center text-secondary mt-5">No Product found!</h1> -->
+
+    <%- include('./partials/footer.ejs'); %>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
