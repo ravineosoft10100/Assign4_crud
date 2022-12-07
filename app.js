@@ -4,7 +4,7 @@ const app=express();
 const PORT=5010;
 
 //Connecting to MongoDB
-mongoose.connect("mongodb+srv://ravicom571:<password>@cluster0.2xfyztm.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://ravicom571:ravineosoft@cluster0.2xfyztm.mongodb.net/?retryWrites=true&w=majority")
 .then(res=> console.log("Connected"))
 .catch(err=> console.log("error"+err))
 
